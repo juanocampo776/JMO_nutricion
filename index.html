@@ -147,9 +147,28 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
-            background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(233, 236, 239, 0.9) 100%), url('img/hero_gym.png') no-repeat center center/cover;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(248, 249, 250, 0.88) 0%, rgba(220, 230, 225, 0.85) 100%);
+            z-index: 1;
         }
 
         .hero h1 {
@@ -391,6 +410,19 @@
                 height: 60px;
             }
 
+            .hero {
+                height: 100svh;
+                min-height: -webkit-fill-available;
+            }
+
+            .hero-video {
+                width: 100%;
+                height: 100%;
+                min-width: unset;
+                min-height: unset;
+                object-fit: cover;
+            }
+
             .hero h1 {
                 font-size: 2.3rem;
             }
@@ -563,7 +595,11 @@
     </nav>
 
     <header class="hero" id="inicio">
-        <div class="hero-content">
+        <video class="hero-video" autoplay muted loop playsinline poster="img/hero_gym.png">
+            <source src="img/VIDEO_HERO_JMO.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" style="position: relative; z-index: 2;">
             <h1 class="slide-up">Lleva tu cuerpo al <span>siguiente nivel</span></h1>
             <p class="fade-in" style="transition-delay: 0.2s;">Nutrición deportiva y clínica basada en evidencia
                 científica. Planes 100% personalizados para maximizar
